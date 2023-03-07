@@ -7,14 +7,19 @@ services:
         networks:
             - networktp6
         volumes:
-          - ./text_file.txt:/app/text_file.txt
+            - type: bind
+              source: ./text_file.txt
+              target: /app/text_file.txt
         depends_on:
             - db
     db:
-        container_name: 'mongodb'
-        image: mongo:4.4
+        container_name: mongodb
+        image: mongo:latest
         networks:
            - networktp6
 networks:
    networktp6:
        driver: bridge
+volumes:
+    mongodb_data:
+        external: true
