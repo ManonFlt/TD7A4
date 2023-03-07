@@ -39,3 +39,4 @@ Run:
 ```bash
 docker-compose up
 ```
+Visit http://localhost:5000
